@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^1.7.2",
+    "dompurify": "^3.4.16",
     "framer-motion": "^11.3.19",
     "lenis": "^1.1.13",
     "react": "^18.3.1",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.11",
+    "@types/dompurify": "^3.0.5",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
@@ -27,6 +29,7 @@
     "postcss": "^8.5.28",
     "tailwindcss": "^3.4.19",
     "typescript": "^5.5.3",
-    "vite": "^5.3.4"
+    "vite": "^5.3.4",
+    "vite-plugin-compression": "^0.5.1"
   }
 }

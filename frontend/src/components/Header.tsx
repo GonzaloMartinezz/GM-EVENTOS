@@ -54,7 +54,7 @@ export default function Header() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button className="flex items-center gap-2 font-mono text-sm uppercase font-bold tracking-widest text-black hover:text-[#ff3c00] transition-colors">
-                Connect
+                Conectar
                 <div className="w-1.5 h-1.5 rounded-full bg-neutral-400 group-hover:bg-[#ff3c00] animate-pulse"></div>
               </button>
 
@@ -74,7 +74,7 @@ export default function Header() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button className="flex items-center gap-2 font-mono text-sm uppercase font-bold tracking-widest text-black hover:text-[#ff3c00] transition-colors">
-                Cultivate
+                Cultivar
                 <div className="w-1.5 h-1.5 rounded-full bg-neutral-400 group-hover:bg-[#ff3c00] animate-pulse"></div>
               </button>
 
@@ -89,7 +89,7 @@ export default function Header() {
 
             {/* Link simple */}
             <Link to="/about" className="font-mono text-sm uppercase font-bold tracking-widest text-black hover:text-[#ff3c00] transition-colors">
-              About Us
+              Nosotros
             </Link>
 
             <Link to="/admin/login" className="font-mono text-sm uppercase font-bold tracking-widest text-neutral-500 hover:text-[#ff3c00] transition-colors">
@@ -128,7 +128,7 @@ export default function Header() {
           <Link to="/agenda" onClick={() => setIsMenuOpen(false)} className="font-display text-5xl lg:text-7xl uppercase tracking-tighter text-white hover:text-[#ff3c00] transition-colors">Agenda</Link>
           <Link to="/artistas" onClick={() => setIsMenuOpen(false)} className="font-display text-5xl lg:text-7xl uppercase tracking-tighter text-white hover:text-[#ff3c00] transition-colors">Artistas</Link>
           <Link to="/talleres" onClick={() => setIsMenuOpen(false)} className="font-display text-5xl lg:text-7xl uppercase tracking-tighter text-white hover:text-[#ff3c00] transition-colors">Talleres</Link>
-          <Link to="/about" onClick={() => setIsMenuOpen(false)} className="font-display text-5xl lg:text-7xl uppercase tracking-tighter text-white hover:text-[#ff3c00] transition-colors">About Us</Link>
+          <Link to="/about" onClick={() => setIsMenuOpen(false)} className="font-display text-5xl lg:text-7xl uppercase tracking-tighter text-white hover:text-[#ff3c00] transition-colors">Nosotros</Link>
         </div>
       </div>
     </>

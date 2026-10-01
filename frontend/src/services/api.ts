@@ -4,24 +4,16 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
 
 export const api = axios.create({
   baseURL: API_URL,
+  withCredentials: true,
 });
 
-// Adjunta el token del admin (si existe) a cada request
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('admin_token');
-  if (token) {
-    config.headers = config.headers || {};
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
+// No longer attach token manually; cookies handle it securely
 
 // Si el token expiró o es inválido, deslogueamos automáticamente
 api.interceptors.response.use(
   (res) => res,
   (error) => {
     if (error?.response?.status === 401) {
-      localStorage.removeItem('admin_token');
       localStorage.removeItem('admin_user');
     }
     return Promise.reject(error);

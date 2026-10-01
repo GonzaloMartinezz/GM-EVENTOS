@@ -7,12 +7,15 @@ export interface AuthRequest extends Request {
 
 export function requireAuth(req: AuthRequest, res: Response, next: NextFunction) {
   const header = req.headers.authorization;
+  let token = req.cookies?.token;
 
-  if (!header || !header.startsWith('Bearer ')) {
-    return res.status(401).json({ message: 'No autorizado: falta el token' });
+  if (!token && header && header.startsWith('Bearer ')) {
+    token = header.slice('Bearer '.length);
   }
 
-  const token = header.slice('Bearer '.length);
+  if (!token) {
+    return res.status(401).json({ message: 'No autorizado: falta el token' });
+  }
 
   try {
     const decoded = verifyToken(token);

@@ -8,19 +8,22 @@ export interface AdminUser {
 }
 
 interface LoginResponse {
-  token: string;
   user: AdminUser;
 }
 
 export async function login(email: string, password: string): Promise<AdminUser> {
   const { data } = await api.post<LoginResponse>('/auth/login', { email, password });
-  localStorage.setItem('admin_token', data.token);
+  // El token se guarda automáticamente en una cookie HttpOnly
   localStorage.setItem('admin_user', JSON.stringify(data.user));
   return data.user;
 }
 
-export function logout() {
-  localStorage.removeItem('admin_token');
+export async function logout() {
+  try {
+    await api.post('/auth/logout');
+  } catch (err) {
+    console.error('Error al cerrar sesión', err);
+  }
   localStorage.removeItem('admin_user');
 }
 
@@ -30,5 +33,5 @@ export function getStoredUser(): AdminUser | null {
 }
 
 export function isLoggedIn(): boolean {
-  return !!localStorage.getItem('admin_token');
+  return !!localStorage.getItem('admin_user');
 }

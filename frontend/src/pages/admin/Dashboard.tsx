@@ -30,8 +30,8 @@ export default function AdminDashboard() {
     load();
   }
 
-  function handleLogout() {
-    logout();
+  async function handleLogout() {
+    await logout();
     navigate('/admin/login');
   }
 

@@ -26,10 +26,26 @@ export const login = asyncHandler(async (req: Request, res: Response) => {
 
   const token = signToken({ id: user.id, email: user.email, role: user.role });
 
+  // Seguridad: Guardar token en HttpOnly cookie para evitar XSS
+  res.cookie('token', token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    maxAge: 7 * 24 * 60 * 60 * 1000 // 7 días
+  });
+
   res.json({
-    token,
     user: { id: user.id, name: user.name, email: user.email, role: user.role },
   });
+});
+
+// POST /api/auth/logout
+export const logout = asyncHandler(async (_req: Request, res: Response) => {
+  res.cookie('token', '', {
+    httpOnly: true,
+    expires: new Date(0)
+  });
+  res.json({ message: 'Sesión cerrada exitosamente' });
 });
 
 // GET /api/auth/me
