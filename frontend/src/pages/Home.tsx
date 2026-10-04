@@ -98,7 +98,7 @@ export default function Home() {
                 onMouseEnter={() => setActiveDropdown(item.name)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <a href={`#${item.name.toLowerCase()}`}
+                <Link to={`/${item.name.toLowerCase()}`}
                   className="font-display text-sm lg:text-base uppercase tracking-widest text-black hover:text-[#ff3c00] transition-colors py-8 flex items-center gap-1"
                 >
                   {item.name}
@@ -113,19 +113,19 @@ export default function Home() {
                   >
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
-                </a>
+                </Link>
 
                 {/* Dropdown Menu */}
                 <div
                   className={`absolute top-full left-0 bg-black border-4 border-black shadow-[4px_4px_0_#ff3c00] flex flex-col min-w-[220px] transition-all duration-300 origin-top ${activeDropdown === item.name ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"}`}
                 >
                   {item.sub.map((subItem) => (
-                    <a key={subItem}
-                      href="#"
+                    <Link key={subItem}
+                      to={`/${subItem.toLowerCase().replace(/\s+/g, '-')}`}
                       className="font-display text-sm uppercase tracking-widest text-white hover:text-black hover:bg-[#ff3c00] px-4 py-3 transition-colors border-b border-white/20 last:border-0"
                     >
                       {subItem}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -170,11 +170,11 @@ export default function Home() {
               </svg>
             </div>
 
-            <a href="#contacto"
+            <Link to="/contacto"
               className="font-display text-sm lg:text-base uppercase tracking-widest text-black hover:text-[#ff3c00] transition-colors"
             >
               CONTACTO
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Hamburger (Only visible on small screens when scrolled) */}
@@ -232,14 +232,14 @@ export default function Home() {
           <nav className="flex flex-col justify-center h-full gap-0 py-10 relative z-0">
             {["AGENDA", "CIUDADES", "EVENTOS", "CONTACTO"].map(
               (item) => (
-                <a key={item}
-                  href={`#${item.toLowerCase().replace(" ", "-")}`}
+                <Link key={item}
+                  to={`/${item.toLowerCase().replace(" ", "-")}`}
                   onClick={() => setIsMenuOpen(false)}
                   style={{ fontFamily: "'Anton', sans-serif" }}
                   className={`text-[15vw] sm:text-[12vw] md:text-[5rem] lg:text-[5.5rem] leading-[0.8] uppercase tracking-normal transition-colors py-1 whitespace-nowrap text-left ${item === "CONTACTO" ? "text-[#ff3c00]" : "text-black hover:text-[#ff3c00]"}`}
                 >
                   {item}
-                </a>
+                </Link>
               ),
             )}
           </nav>
@@ -328,7 +328,7 @@ export default function Home() {
             {/* Bottom Left Text */}
             <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 max-w-xl pr-6">
               <span className="font-mono text-xs md:text-sm text-[#ff3c00] font-bold uppercase tracking-widest bg-black px-2 py-1">
-                AGENDA AUTOGESTIVA 2025
+                AGENDA AUTOGESTIVA 2026-2027
               </span>
               <h3 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase tracking-tighter leading-[0.9] mt-3 drop-shadow-md">
                 ESPECTÁCULOS, BANDAS EN VIVO Y<br />
@@ -456,7 +456,7 @@ export default function Home() {
                     <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-4 sm:gap-2">
                       <div>
                         <span className="text-[#ff3c00] text-[11px] uppercase font-bold tracking-widest block">
-                          15 MARZO 2025
+                          15 OCTUBRE 2026
                         </span>
                         <p className="font-display text-xl uppercase tracking-tight mt-1">
                           ERUCA SATIVA + PECES
@@ -502,7 +502,7 @@ export default function Home() {
                     <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-4 sm:gap-2">
                       <div>
                         <span className="text-black text-[11px] uppercase font-black tracking-widest block">
-                          21 MARZO 2025
+                          21 OCTUBRE 2026
                         </span>
                         <p className="font-display text-xl uppercase tracking-tight mt-1">
                           BABASÓNICOS // VORTEX
@@ -556,7 +556,7 @@ export default function Home() {
                     <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-4 sm:gap-2">
                       <div>
                         <span className="text-[#ff3c00] text-[11px] uppercase font-bold tracking-widest block">
-                          20 MARZO 2025
+                          20 NOVIEMBRE 2026
                         </span>
                         <p className="font-display text-xl uppercase tracking-tight mt-1">
                           HERMANOS DEL NOA
@@ -613,7 +613,7 @@ export default function Home() {
                     <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-4 sm:gap-2">
                       <div>
                         <span className="text-black text-[11px] uppercase font-black tracking-widest block">
-                          05 ABRIL 2025
+                          05 DICIEMBRE 2026
                         </span>
                         <p className="font-display text-xl uppercase tracking-tight mt-1">
                           TRUENO // BIEN O MAL
@@ -659,7 +659,7 @@ export default function Home() {
                     <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-4 sm:gap-2">
                       <div>
                         <span className="text-black text-[11px] uppercase font-black tracking-widest block">
-                          12 ABRIL 2025
+                          12 ENERO 2027
                         </span>
                         <p className="font-display text-xl uppercase tracking-tight mt-1">
                           PECERA + LOS RUSOS
@@ -712,7 +712,7 @@ export default function Home() {
                     <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-4 sm:gap-2">
                       <div>
                         <span className="text-[#e2f952] text-[11px] uppercase font-bold tracking-widest block">
-                          20 ABRIL 2025
+                          20 FEBRERO 2027
                         </span>
                         <p className="font-display text-xl uppercase tracking-tight mt-1">
                           EL MATÓ A UN POLICÍA...
@@ -768,24 +768,24 @@ export default function Home() {
                   p1: "* MONTE CALCHAQUÍ ELEVACIÓN 4.500M",
                   p2: "CAPACIDAD HABILITADA: 7.500",
                   p3: "SOPORTE: GIRA FEDERAL NOA",
-                  p4: "COD: SMT-2025",
+                  p4: "COD: SMT-2026",
                 },
                 events: [
                   {
                     title: "DIVIDIDOS // ESTADIO CENTRAL CÓRDOBA",
-                    date: "11 ABRIL 2025 // 21:00 HS",
+                    date: "11 MARZO 2027 // 21:00 HS",
                     desc: "La aplanadora del rock regresa repasando 35 años de historia.",
                     price: "$22.000",
                   },
                   {
                     title: "LAS PELOTAS // FLORESTA",
-                    date: "18 ABRIL 2025 // 22:00 HS",
+                    date: "18 MARZO 2027 // 22:00 HS",
                     desc: "Presentación exclusiva de su nuevo disco en el mítico club.",
                     price: "$18.000",
                   },
                   {
                     title: "NO TE VA GUSTAR // CENTRAL CÓRDOBA",
-                    date: "02 MAYO 2025 // 20:30 HS",
+                    date: "02 ABRIL 2027 // 20:30 HS",
                     desc: "El rock charrúa vuelve a Tucumán con un show de más de 2 horas.",
                     price: "$25.000",
                   },
@@ -802,24 +802,24 @@ export default function Home() {
                   p1: "* RÍO DE LA PLATA ELEVACIÓN 25M",
                   p2: "CAPACIDAD HABILITADA: 65.000",
                   p3: "SOPORTE: GIRA NACIONAL",
-                  p4: "COD: BUE-2025",
+                  p4: "COD: BUE-2026",
                 },
                 events: [
                   {
                     title: "WOS // ESTADIO RIVER PLATE",
-                    date: "25 MAYO 2025 // 20:00 HS",
+                    date: "25 ABRIL 2027 // 20:00 HS",
                     desc: "El cierre definitivo de la gira Descartes en el Monumental.",
                     price: "$45.000",
                   },
                   {
                     title: "YSY A // ESTADIO HURACÁN",
-                    date: "08 JUNIO 2025 // 19:30 HS",
+                    date: "08 MAYO 2027 // 19:30 HS",
                     desc: "El hombre sismo hace temblar Parque Patricios.",
                     price: "$35.000",
                   },
                   {
                     title: "DILLOM // MOVISTAR ARENA",
-                    date: "15 JUNIO 2025 // 21:00 HS",
+                    date: "15 MAYO 2027 // 21:00 HS",
                     desc: "Presentación oficial de Por Cesárea.",
                     price: "$40.000",
                   },
@@ -836,24 +836,24 @@ export default function Home() {
                   p1: "* SIERRAS CHICAS ELEVACIÓN 1.200M",
                   p2: "CAPACIDAD HABILITADA: 40.000",
                   p3: "SOPORTE: GIRA FEDERAL CENTRO",
-                  p4: "COD: COR-2025",
+                  p4: "COD: COR-2026",
                 },
                 events: [
                   {
                     title: "LA RENGA // ESTADIO KEMPES",
-                    date: "14 JUNIO 2025 // 21:30 HS",
+                    date: "14 MAYO 2027 // 21:30 HS",
                     desc: "El banquete más grande del centro del país. Noche histórica.",
                     price: "$30.000",
                   },
                   {
                     title: "MON LAFERTE // PLAZA DE LA MÚSICA",
-                    date: "22 JUNIO 2025 // 20:00 HS",
+                    date: "22 MAYO 2027 // 20:00 HS",
                     desc: "Tour Autopoiética, una noche íntima y potente.",
                     price: "$35.000",
                   },
                   {
                     title: "CUARTETO DE NOS // QUALITY ARENA",
-                    date: "05 JULIO 2025 // 21:00 HS",
+                    date: "29 MAYO 2027 // 21:00 HS",
                     desc: "Lámina Once llega a Córdoba con todos sus hits.",
                     price: "$28.000",
                   },
@@ -1008,7 +1008,7 @@ export default function Home() {
                   FECHA &amp; RANGO HORARIO
                 </span>
                 <p className="font-display text-2xl sm:text-3xl uppercase tracking-tight">
-                  15 MARZO 2025 // 12:00 A 24:00 HS
+                  15 OCTUBRE 2026 // 12:00 A 24:00 HS
                 </p>
               </div>
               <div className="bg-white text-black p-4 border-2 border-black shadow-[4px_4px_0px_#000]">
@@ -1198,7 +1198,7 @@ export default function Home() {
                       ECHOES UNBOUND
                     </h4>
                     <p className="font-mono text-accent text-sm font-bold mt-1">
-                      29 MARZO 2025
+                      29 NOVIEMBRE 2026
                     </p>
                   </div>
                   {/* Bloque de números descomunales tipo poster suizo */}
@@ -1538,7 +1538,7 @@ export default function Home() {
               <span className="">#WEEKLY CALENDAR</span>
               <span className="text-surface-border">|</span>
               <span className="text-accent font-bold">
-                CICLO 08 — 14 ABRIL 2025
+                CICLO 08 — 14 DICIEMBRE 2026
               </span>
             </div>
           </div>
@@ -2130,7 +2130,7 @@ export default function Home() {
           </div>
 
           <h2 className="font-display text-6xl sm:text-7xl lg:text-9xl uppercase tracking-tighter text-[#e3ddcf] leading-[0.85] text-center mb-8 drop-shadow-lg scale-y-110 transform">
-            NOA ABRIL 2025
+            NOA DICIEMBRE 2026
             <br />
             CALENDARIO
           </h2>
@@ -2279,7 +2279,7 @@ export default function Home() {
                     SÁBADO
                   </span>
                   <span className="text-lg font-bold font-display uppercase tracking-tight text-[#f4f1eb]">
-                    20.04.2025
+                    20.02.2027
                   </span>
                 </div>
                 <div className="absolute bottom-[-10%] right-[10%] w-44 sm:w-52 opacity-90 grayscale contrast-150 drop-shadow-[0_10px_10px_rgba(0,0,0,0.3)]">
@@ -2540,7 +2540,7 @@ export default function Home() {
           </div>
           <div className="pt-8 border-t border-surface-border flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] uppercase tracking-widest">
             <span className="">
-              © 2025 AGENDA CULTURAL TUC // TODOS LOS DERECHOS RESERVADOS
+              © 2026-2027 AGENDA CULTURAL TUC // TODOS LOS DERECHOS RESERVADOS
             </span>
             <div className="flex items-center gap-6">
               <a className="hover:text-white transition-colors"

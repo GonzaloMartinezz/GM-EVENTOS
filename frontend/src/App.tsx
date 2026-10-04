@@ -11,6 +11,7 @@ const AdminLogin = lazy(() => import('./pages/admin/Login'));
 const AdminDashboard = lazy(() => import('./pages/admin/Dashboard'));
 const EventForm = lazy(() => import('./pages/admin/EventForm'));
 const SiteSettingsFormPage = lazy(() => import('./pages/admin/SiteSettingsForm'));
+import GenericPage from './pages/GenericPage';
 
 export default function App() {
   return (
@@ -19,6 +20,16 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/agenda" element={<Agenda />} />
         <Route path="/como-funciona" element={<ComoFunciona />} />
+        <Route path="/artistas" element={<GenericPage />} />
+        <Route path="/productores" element={<GenericPage />} />
+        <Route path="/prensa" element={<GenericPage />} />
+        <Route path="/talleres" element={<GenericPage />} />
+        <Route path="/conferencias" element={<GenericPage />} />
+        <Route path="/networking" element={<GenericPage />} />
+        <Route path="/about" element={<GenericPage />} />
+        <Route path="/contacto" element={<GenericPage />} />
+        <Route path="/ciudades" element={<GenericPage />} />
+        <Route path="/eventos" element={<GenericPage />} />
         <Route path="/eventos/:slug" element={<EventDetail />} />
 
         <Route path="/admin/login" element={<AdminLogin />} />

@@ -60,9 +60,9 @@ export default function Header() {
 
               <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 w-48 bg-[#1f242e] border-t-4 border-[#ff3c00] p-2 transition-all duration-300 ${activeDropdown === 'connect' ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-2 invisible'}`}>
                 <div className="flex flex-col">
-                  <a href="#" className="font-mono text-xs uppercase tracking-widest text-[#f5f1e8] hover:text-[#ff3c00] p-3 transition-colors">Artistas</a>
-                  <a href="#" className="font-mono text-xs uppercase tracking-widest text-[#f5f1e8] hover:text-[#ff3c00] p-3 transition-colors">Productores</a>
-                  <a href="#" className="font-mono text-xs uppercase tracking-widest text-[#f5f1e8] hover:text-[#ff3c00] p-3 transition-colors">Prensa</a>
+                  <Link to="/artistas" className="font-mono text-xs uppercase tracking-widest text-[#f5f1e8] hover:text-[#ff3c00] p-3 transition-colors">Artistas</Link>
+                  <Link to="/productores" className="font-mono text-xs uppercase tracking-widest text-[#f5f1e8] hover:text-[#ff3c00] p-3 transition-colors">Productores</Link>
+                  <Link to="/prensa" className="font-mono text-xs uppercase tracking-widest text-[#f5f1e8] hover:text-[#ff3c00] p-3 transition-colors">Prensa</Link>
                 </div>
               </div>
             </div>
@@ -80,9 +80,9 @@ export default function Header() {
 
               <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 w-48 bg-[#1f242e] border-t-4 border-[#ff3c00] p-2 transition-all duration-300 ${activeDropdown === 'cultivate' ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-2 invisible'}`}>
                 <div className="flex flex-col">
-                  <a href="#" className="font-mono text-xs uppercase tracking-widest text-[#f5f1e8] hover:text-[#ff3c00] p-3 transition-colors">Talleres</a>
-                  <a href="#" className="font-mono text-xs uppercase tracking-widest text-[#f5f1e8] hover:text-[#ff3c00] p-3 transition-colors">Conferencias</a>
-                  <a href="#" className="font-mono text-xs uppercase tracking-widest text-[#f5f1e8] hover:text-[#ff3c00] p-3 transition-colors">Networking</a>
+                  <Link to="/talleres" className="font-mono text-xs uppercase tracking-widest text-[#f5f1e8] hover:text-[#ff3c00] p-3 transition-colors">Talleres</Link>
+                  <Link to="/conferencias" className="font-mono text-xs uppercase tracking-widest text-[#f5f1e8] hover:text-[#ff3c00] p-3 transition-colors">Conferencias</Link>
+                  <Link to="/networking" className="font-mono text-xs uppercase tracking-widest text-[#f5f1e8] hover:text-[#ff3c00] p-3 transition-colors">Networking</Link>
                 </div>
               </div>
             </div>

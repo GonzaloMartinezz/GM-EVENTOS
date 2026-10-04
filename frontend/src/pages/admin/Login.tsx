@@ -100,7 +100,7 @@ export default function AdminLogin() {
         </div>
         
         <div className="mt-8 text-center text-[10px] text-neutral-500 font-mono uppercase tracking-widest">
-          ESTRICTAMENTE CONFIDENCIAL • GM EVENTS VOL. 2025
+          ESTRICTAMENTE CONFIDENCIAL • GM EVENTS VOL. 2026
         </div>
       </div>
     </div>
