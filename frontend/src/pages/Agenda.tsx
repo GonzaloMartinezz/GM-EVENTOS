@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SearchBar from '../components/SearchBar';
@@ -10,21 +11,31 @@ import { EventItem, EventCategory } from '../types/event';
 
 /** Catálogo completo de eventos, con búsqueda, filtros y paginación. */
 export default function Agenda() {
+  const [searchParams] = useSearchParams();
+  const initialQ = searchParams.get('q') || '';
+  const initialCity = searchParams.get('city') || '';
+
   const [events, setEvents] = useState<EventItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const [q, setQ] = useState('');
+  const [q, setQ] = useState(initialQ);
   const [category, setCategory] = useState<EventCategory | ''>('');
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState(initialCity);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  async function load(currentPage = 1) {
+  async function load(currentPage = 1, overrides: { q?: string; city?: string } = {}) {
     setLoading(true);
     setError('');
     try {
-      const res = await fetchEvents({ q, category, city, page: currentPage, limit: 9 });
+      const res = await fetchEvents({
+        q: overrides.q ?? q,
+        category,
+        city: overrides.city ?? city,
+        page: currentPage,
+        limit: 9,
+      });
       setEvents(res.data);
       setTotalPages(res.pagination.totalPages);
       setPage(res.pagination.page);
@@ -36,7 +47,9 @@ export default function Agenda() {
   }
 
   useEffect(() => {
-    load(1);
+    // Si venimos de /ciudades (?city=...) o de un buscador (?q=...), arrancamos
+    // ya filtrados por eso.
+    load(1, { q: initialQ, city: initialCity });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

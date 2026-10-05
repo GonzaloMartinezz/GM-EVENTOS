@@ -87,7 +87,11 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Link simple */}
+            {/* Links simples */}
+            <Link to="/ciudades" className="font-mono text-sm uppercase font-bold tracking-widest text-black hover:text-[#ff3c00] transition-colors">
+              Ciudades
+            </Link>
+
             <Link to="/about" className="font-mono text-sm uppercase font-bold tracking-widest text-black hover:text-[#ff3c00] transition-colors">
               Nosotros
             </Link>
@@ -126,6 +130,7 @@ export default function Header() {
         </div>
         <div className="h-full flex flex-col items-center justify-center gap-8">
           <Link to="/agenda" onClick={() => setIsMenuOpen(false)} className="font-display text-5xl lg:text-7xl uppercase tracking-tighter text-white hover:text-[#ff3c00] transition-colors">Agenda</Link>
+          <Link to="/ciudades" onClick={() => setIsMenuOpen(false)} className="font-display text-5xl lg:text-7xl uppercase tracking-tighter text-white hover:text-[#ff3c00] transition-colors">Ciudades</Link>
           <Link to="/artistas" onClick={() => setIsMenuOpen(false)} className="font-display text-5xl lg:text-7xl uppercase tracking-tighter text-white hover:text-[#ff3c00] transition-colors">Artistas</Link>
           <Link to="/talleres" onClick={() => setIsMenuOpen(false)} className="font-display text-5xl lg:text-7xl uppercase tracking-tighter text-white hover:text-[#ff3c00] transition-colors">Talleres</Link>
           <Link to="/about" onClick={() => setIsMenuOpen(false)} className="font-display text-5xl lg:text-7xl uppercase tracking-tighter text-white hover:text-[#ff3c00] transition-colors">Nosotros</Link>

@@ -1,6 +1,7 @@
 {
   "name": "eventos-tucuman-backend",
   "version": "1.0.0",
+  "license": "MIT",
   "description": "API del MVP de eventos culturales (Tucumán / Buenos Aires) - Express + TypeScript + MongoDB",
   "main": "dist/server.js",
   "scripts": {
